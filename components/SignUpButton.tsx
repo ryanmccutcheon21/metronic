@@ -1,20 +1,30 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { SignUpButtonProps } from '@/types'
+import { Button } from '@chakra-ui/react'
 
 const SignUpButton: React.FC<SignUpButtonProps> = ({ currStep, setCurrStep }) => {
     return (
-        <div className='w-[82%] mt-5 flex justify-end'>
-
-            <button
-                type='button'
-                className='bg-blue px-3 py-2 rounded-md text-[#fff] hover:cursor-pointer flex items-center justify-around w-[8rem] hover:opacity-80 transition-all'
-                onClick={() => setCurrStep(currStep + 1)}
-            >
-                Continue
-                <FontAwesomeIcon icon={faChevronRight} className='h-3' />
-            </button>
-        </div>
+        <Button
+            type='button'
+            mt={10}
+            display='flex'
+            border='none'
+            justifyContent='space-around'
+            backgroundColor='#4a92e5'
+            px={10}
+            py={10}
+            rounded='5px'
+            color='#fff'
+            _hover={{ cursor: 'pointer', shadow: '0px 2px 2px #777', transform: 'translate(0px, -1px)' }}
+            alignItems='center'
+            w='8rem'
+            transitionDelay='100'
+            onClick={() => setCurrStep(currStep + 1)}
+        >
+            Continue
+            <FontAwesomeIcon icon={faChevronRight} className='h-3' />
+        </Button>
     )
 }
 

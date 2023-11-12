@@ -1,11 +1,19 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import AppleLogin from 'react-apple-login'
 
 const AppleLoginButton = () => {
     return (
-        <div className='hover:cursor-pointer border border-[#DDD] rounded-md hover:shadow-md hover:-translate-y-0.5 transition-all'>
+        <Box
+            _hover={{
+                cursor: 'pointer',
+                shadow: '0px 2px 2px #CCC',
+                transform: 'translate(0px, -1px)'
+            }}
+            rounded={5}
+        >
             <AppleLogin clientId="com.react.apple.login" redirectURI="https://redirectUrl.com" designProp={{ color: 'white', border: false, height: 30, width: 175 }} />
-        </div>
+        </Box>
     )
 }
 

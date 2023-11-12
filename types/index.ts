@@ -20,6 +20,8 @@ export interface SignUpMainProps {
         userPassword: string
     }
     setUserData: React.Dispatch<React.SetStateAction<{ userType: string }>>
+    currStep: number
+    setCurrStep: React.Dispatch<React.SetStateAction<number>>
 }
 
 interface Values {
@@ -43,4 +45,13 @@ export interface SignUpPersonalProps {
         userPassword: string
     }
     updateUserData: (values: Values) => void
+}
+
+
+export type TableRow = {
+    id: number
+    dateRemoved: string
+    link: string
+    source: string
+    action: string
 }

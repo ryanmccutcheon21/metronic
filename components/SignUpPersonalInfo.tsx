@@ -11,16 +11,15 @@ import {
     Text,
     Flex,
     Box,
-    IconButton,
     InputGroup,
     InputRightElement,
+    Heading,
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import GoogleLoginButton from './GoogleLoginButton'
 import AppleLoginButton from './AppleLoginButton'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { SignUpPersonalProps } from '@/types'
-
 
 // Yup Form Schema
 const SignupSchema = Yup.object().shape({
@@ -39,7 +38,7 @@ const SignupSchema = Yup.object().shape({
 })
 
 // Component Start
-const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUserData }) => {
+const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) => {
     // Form States
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -54,25 +53,19 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
 
     return (
         <GoogleOAuthProvider clientId="123">
-            <Box className="flex flex-1 justify-center items-center min-h-screen">
+            <Flex flexGrow={1} justifyContent='center' alignItems='center' minH='100vh'>
                 <Box className="flex flex-col justify-center items-center gap-1">
-                    <h1 className="font-extrabold text-xl">Account Details</h1>
-                    <h2 className="text-xs text-[#777] mb-2 -mt-1">Add your personal info</h2>
+                    <Heading as='h1' fontWeight='bold' fontSize={30}>Account Details</Heading>
+                    <Heading as='h2' color='#777' mb={10}>Add your personal info</Heading>
 
                     {/* Google & Apple Buttons */}
-                    <Box className="flex gap-5">
+                    <Flex gap={5} position='relative'>
                         <GoogleLoginButton />
                         <AppleLoginButton />
-                    </Box>
+                    </Flex>
 
                     {/* Email Option Heading */}
-                    <Box className="flex gap-5">
-                        <div className="border-t mt-3 border-[#777] w-[29vw] flex-1"></div>
-                        {/* Thin line on the left */}
-                        <p className="text-[#777]">Or with email</p>
-                        <div className="border-t mt-3 border-[#777] flex-1"></div>
-                        {/* Thin line on the right */}
-                    </Box>
+                    <Text className="text-[#777]" mt={10} mb={10}>Or with email</Text>
 
                     {/* Form Schema */}
                     <Formik
@@ -95,7 +88,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                     >
                         {/* Form Start */}
                         <Form>
-                            <Box className="flex gap-5 mb-5">
+                            <Flex mb={20} gap={30}>
                                 <FormControl id="firstName" isRequired>
                                     {/* First and Last Name */}
                                     <Field
@@ -116,7 +109,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                                     />
                                     <ErrorMessage name="lastName" component="div" className="text-[#FF5555]" />
                                 </FormControl>
-                            </Box>
+                            </Flex>
                             {/* End First and Last Name */}
 
                             <Box className="flex flex-col gap-5">
@@ -161,23 +154,19 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                                             type={showPassword ? 'text' : 'password'}
                                             name="password"
                                             placeholder="Password"
-                                            className="border px-2 w-[100%] rounded-sm"
+                                            className="border px-2 w-[110%] rounded-sm"
                                         />
-                                        <InputRightElement width="4.5rem">
-                                            <IconButton
-                                                aria-label='Password'
-                                                icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
-                                                onClick={togglePasswordVisibility}
-                                                h="1.75rem"
-                                                size="sm"
-                                            />
+                                        <InputRightElement width="4.5rem" onClick={togglePasswordVisibility}>
+                                            <Box onClick={togglePasswordVisibility}>
+                                                {showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                                            </Box>
                                         </InputRightElement>
                                     </InputGroup>
                                     <ErrorMessage name="password" component="div" className="text-[#FF5555]" />
                                 </FormControl>
 
                                 {/* Confirm Password */}
-                                <FormControl>
+                                <FormControl width='100%'>
                                     <InputGroup>
                                         <Field
                                             type={showConfirmPassword ? 'text' : 'password'}
@@ -186,13 +175,9 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                                             className="border px-2 w-[100%] rounded-sm"
                                         />
                                         <InputRightElement width="4.5rem">
-                                            <IconButton
-                                                aria-label='Confirm Password'
-                                                icon={showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
-                                                onClick={toggleConfirmPasswordVisibility}
-                                                h="1.75rem"
-                                                size="sm"
-                                            />
+                                            <Box onClick={toggleConfirmPasswordVisibility}>
+                                                {showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
+                                            </Box>
                                         </InputRightElement>
                                     </InputGroup>
                                     <ErrorMessage name="confirmPassword" component="div" className="text-[#FF5555]" />
@@ -211,7 +196,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                                         height={20} />
                                     <Text fontSize="sm" color="black" ml={10}>
                                         I accept the{' '}
-                                        <Link href="/signup" passHref className="text-blue">
+                                        <Link href="/signup" passHref className="text-blue no-underline hover:underline">
                                             Terms
                                         </Link>
                                     </Text>
@@ -229,8 +214,9 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                                 py={10}
                                 minWidth="100%"
                                 borderRadius="4px"
+                                border='none'
                                 textColor="white"
-                                _hover={{ opacity: '90%' }}
+                                _hover={{ cursor: 'pointer', shadow: '0px 2px 2px #777', transform: 'translate(0px, -1px)' }}
                             >
                                 Continue
                             </Button>
@@ -238,14 +224,14 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ userData, updateUse
                     </Formik>
 
                     {/* Already Have an Account */}
-                    <Text mt={4} color="black">
+                    <Text mt={4} color="#777">
                         Already have an account?{' '}
-                        <Link href="/signin" passHref className='text-blue'>
+                        <Link href="/signin" passHref className='text-blue no-underline hover:underline'>
                             Sign in
                         </Link>
                     </Text>
                 </Box>
-            </Box>
+            </Flex>
         </GoogleOAuthProvider>
     )
 }

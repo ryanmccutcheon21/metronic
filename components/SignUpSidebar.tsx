@@ -3,55 +3,69 @@ import { SignUpSidebarProps } from '@/types'
 import Image from 'next/image'
 import React from 'react'
 import logo from '../public/logo.png'
+import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 
 const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) => {
     return (
-        <div className='bg-blue flex flex-col items-center justify-between min-h-screen'>
-
+        <Flex
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='space-between'
+            w='33vw'
+            backgroundColor='#006CEA'
+            minH='100vh'
+        >
             {/* Logo */}
-            <div className='mt-20 w-[40%]'>
+            <Box pt={20}>
                 <Image
                     alt='Metronic Logo'
                     src={logo}
-                    sizes='100vw'
+                    height={60}
                 />
-            </div>
+            </Box>
 
             {/* Progress Bar */}
-            <ul>
+            <UnorderedList>
                 {[1, 2, 3, 4].map(step => (
                     <>
-                        <li className='flex gap-5 py-5'>
-                            {/* Step Icon */}
-                            <p className={`${step === currStep ? 'bg-green' : 'bg-transparent border border-dotted'} w-11 rounded-md flex justify-center items-center hover:cursor-pointer`}
-                                onClick={() => setCurrStep(step)}
-                            >
-                                {step}
-                            </p>
-                            <div>
-                                <p>{progressIndicators[step - 1].main}</p>
-                                <p className='bg-white text-[#aaa] text-xs'>{progressIndicators[step - 1].sub}</p>
-                            </div>
-                        </li>
-                        {/* Connecting Line */}
-                        {
-                            step < 4 && (
-                                <>
-                                    <hr className='border border-l-1 border-dotted left-[4.25rem] -mt-5 absolute h-10 border-[#aaa]' />
-                                </>
-                            )
-                        }
+                        <ListItem className='flex gap-5 py-5'>
+                            <Box position='relative'>
+                                {/* Step Icon */}
+                                <Text className={`${step === currStep ? 'bg-green' : 'bg-transparent border border-dotted'} w-11 h-11 rounded-md flex justify-center items-center hover:cursor-pointer`}
+                                    onClick={() => setCurrStep(step)}
+                                >
+                                    {step}
+                                </Text>
+                                {/* Connecting Line */}
+                                {
+                                    step < 4 && (
+                                        <>
+                                            <hr className='border-l-1 border-dotted w-0 h-[2.3rem] absolute top-[2.3rem] left-[1.35rem] border-[#aaa]' />
+                                        </>
+                                    )
+                                }
+                            </Box>
+
+                            <Box>
+                                <Text>{progressIndicators[step - 1].main}</Text>
+                                <Text
+                                    color='#aaa'
+                                >
+                                    {progressIndicators[step - 1].sub}
+                                </Text>
+                            </Box>
+                        </ListItem>
                     </>
                 ))}
-            </ul>
+            </UnorderedList>
 
             {/* Footer Links */}
-            <div className='flex justify-evenly w-[100%] mb-5'>
-                <p className='hover:cursor-pointer hover:opacity-90 text-green'>Terms</p>
-                <p className='hover:cursor-pointer hover:opacity-90 text-green'>Plans</p>
-                <p className='hover:cursor-pointer hover:opacity-90 text-green'>Contact Us</p>
-            </div>
-        </div >
+            <Flex justifyContent='space-evenly' paddingBottom={10} w='100%'>
+                <Text _hover={{ cursor: 'pointer', opacity: '90%' }} color='#50CD89'>Terms</Text>
+                <Text _hover={{ cursor: 'pointer', opacity: '90%' }} color='#50CD89'>Plans</Text>
+                <Text _hover={{ cursor: 'pointer', opacity: '90%' }} color='#50CD89'>Contact Us</Text>
+            </Flex>
+        </Flex >
     )
 }
 

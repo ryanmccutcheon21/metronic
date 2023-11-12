@@ -3,20 +3,27 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Navbar from "@/components/Navbar"
+import FormContainer from "@/components/FormContainer"
+import HomeNav from "@/components/SidebarNav"
+import { Box, Flex } from "@chakra-ui/react"
 
-export default function Home() {
-  const [isSignedIn, setisSignedIn] = useState(true)
+const Home = () => {
+  const [isSignedIn, setIsSignedIn] = useState(true)
   const router = useRouter()
 
   if (!isSignedIn) return router.push('/signup')
 
   return (
-    <>
+    <Box h='100vh'>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        hi
-      </main>
-    </>
-
+      <Flex px={10}>
+        {/* Sidebar Nav */}
+        <HomeNav />
+        {/* Main Content */}
+        <FormContainer />
+      </Flex>
+    </Box>
   )
 }
+
+export default Home

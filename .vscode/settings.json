@@ -1,0 +1,21 @@
+{
+  "detectedConfig": {
+    "typescript": true,
+    "naming": "Pascal Case",
+    "unit": "em",
+    "framework": "nextjs",
+    "styling": "CSS"
+  },
+  "locofyConfig": {
+    "project_name": "Metronic",
+    "id": "654fed9dea458162d3555626",
+    "framework": "react-nextjs",
+    "typescript": true,
+    "path": "public/",
+    "componentsPath": "/Users/ryanmccutcheon/Projects/metronic/components",
+    "screensPath": "/Users/ryanmccutcheon/Projects/metronic/src/pages",
+    "styling": "Tailwind",
+    "unit": "em",
+    "naming": "Kebab Case"
+  }
+}

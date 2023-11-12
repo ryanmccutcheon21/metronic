@@ -6,6 +6,7 @@ import Image from "next/image"
 import logo from '../public/logo-6-1.svg'
 import notificationBell from '../public/frame.svg'
 import userProfileImage from '../public/v3-0282261-1@2x.png'
+import Link from "next/link"
 
 const Navbar: NextPage = () => {
     return (
@@ -19,12 +20,14 @@ const Navbar: NextPage = () => {
             <Box
                 paddingLeft={10}
             >
-                <Image
-                    src={logo}
-                    width={150}
-                    height={50}
-                    alt='Navbar logo'
-                />
+                <Link href='/signup'>
+                    <Image
+                        src={logo}
+                        width={150}
+                        height={50}
+                        alt='Navbar logo'
+                    />
+                </Link>
             </Box>
             <Spacer />
 

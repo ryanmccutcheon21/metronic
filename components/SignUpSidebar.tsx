@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import logo from '../public/logo.png'
 import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) => {
     return (
@@ -12,16 +13,19 @@ const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) 
             alignItems='center'
             justifyContent='space-between'
             w='33vw'
+            minW='33vw'
             backgroundColor='#006CEA'
             minH='100vh'
         >
             {/* Logo */}
             <Box pt={20}>
-                <Image
-                    alt='Metronic Logo'
-                    src={logo}
-                    height={60}
-                />
+                <Link href='/'>
+                    <Image
+                        alt='Metronic Logo'
+                        src={logo}
+                        height={60}
+                    />
+                </Link>
             </Box>
 
             {/* Progress Bar */}

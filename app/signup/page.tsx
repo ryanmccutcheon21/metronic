@@ -34,7 +34,7 @@ const signup = () => {
             <SignUpSidebar currStep={currStep} setCurrStep={setCurrStep} />
             {currStep === 1 && (
                 <Flex flexDirection='column' justifyContent='center' alignItems='center' w='100%'>
-                    <SignUpMain userData={userData} setUserData={(userType) => setUserData(userType)} currStep={currStep} setCurrStep={setCurrStep} />
+                    <SignUpMain userData={userData} setUserData={(userType) => setUserData} currStep={currStep} setCurrStep={setCurrStep} />
                 </Flex>
             )}
             {currStep === 2 && (

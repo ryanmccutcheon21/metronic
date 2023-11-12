@@ -112,7 +112,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                             </Flex>
                             {/* End First and Last Name */}
 
-                            <Box className="flex flex-col gap-5">
+                            <Flex flexDirection='column' gap={20}>
                                 {/* Creator Name */}
                                 <FormControl>
                                     <Field
@@ -148,15 +148,15 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                                 </FormControl>
 
                                 {/* Password */}
-                                <FormControl>
+                                <FormControl mr={-20}>
                                     <InputGroup>
                                         <Field
                                             type={showPassword ? 'text' : 'password'}
                                             name="password"
                                             placeholder="Password"
-                                            className="border px-2 w-[110%] rounded-sm"
+                                            className="border px-2 w-[100%] rounded-sm"
                                         />
-                                        <InputRightElement width="4.5rem" onClick={togglePasswordVisibility}>
+                                        <InputRightElement width="2.5rem" onClick={togglePasswordVisibility}>
                                             <Box onClick={togglePasswordVisibility}>
                                                 {showPassword ? <ViewOffIcon /> : <ViewIcon />}
                                             </Box>
@@ -165,8 +165,9 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                                     <ErrorMessage name="password" component="div" className="text-[#FF5555]" />
                                 </FormControl>
 
+
                                 {/* Confirm Password */}
-                                <FormControl width='100%'>
+                                <FormControl mr={-20}>
                                     <InputGroup>
                                         <Field
                                             type={showConfirmPassword ? 'text' : 'password'}
@@ -174,7 +175,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                                             placeholder="Confirm Password"
                                             className="border px-2 w-[100%] rounded-sm"
                                         />
-                                        <InputRightElement width="4.5rem">
+                                        <InputRightElement width="2.5rem">
                                             <Box onClick={toggleConfirmPasswordVisibility}>
                                                 {showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
                                             </Box>
@@ -182,7 +183,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                                     </InputGroup>
                                     <ErrorMessage name="confirmPassword" component="div" className="text-[#FF5555]" />
                                 </FormControl>
-                            </Box>
+                            </Flex>
 
                             {/* Terms & Conditions */}
                             <FormControl id="terms" isRequired marginTop={15}>
@@ -211,6 +212,7 @@ const SignUpPersonalInfo: React.FC<SignUpPersonalProps> = ({ updateUserData }) =
                                 width={40}
                                 colorScheme="#006CEA"
                                 mt={20}
+                                ml={10}
                                 py={10}
                                 minWidth="100%"
                                 borderRadius="4px"

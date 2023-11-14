@@ -51,12 +51,12 @@ const FormContainer: React.FC = () => {
             <CardBody>
               <Flex justifyContent='space-between' alignItems='center'>
                 <Text fontSize={40} color='black'>{obj.num}</Text>
-                <Box backgroundColor={obj.imgBackgroundColor} rounded={10} p={2}>
+                <Box backgroundColor={obj.imgBackgroundColor} rounded={5} p={2}>
                   <Image
                     alt="links scraped"
                     src={obj.image}
-                    height={30}
-                    width={30}
+                    height={20}
+                    width={20}
                   />
                 </Box>
               </Flex>
@@ -83,14 +83,15 @@ const FormContainer: React.FC = () => {
           <InputGroup>
             <Flex>
               <InputLeftElement pointerEvents="none">
-                <FontAwesomeIcon icon={faUser} style={{ color: '#9f9f9f' }} className="bg-[#cccccc] rounded-xl p-1 mt-[5px] ml-2" />
+                <FontAwesomeIcon icon={faUser} style={{ color: '#A1A5B7' }} className="bg-gray-200 rounded-xl p-1 mt-[5px] ml-2" />
               </InputLeftElement>
               <Input
                 type="text"
                 pl={35}
                 rounded={5}
                 border='none'
-                backgroundColor='#eeeeee'
+                backgroundColor='#F9F9F9'
+                textColor={{ color: '#7E8299' }}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search"
@@ -104,35 +105,35 @@ const FormContainer: React.FC = () => {
             <Flex gap={10}>
 
               {/* Export */}
-              <Flex gap={10} bg='#d8e9fc' p={10} rounded={5} _hover={{ cursor: 'pointer' }}>
-                <FontAwesomeIcon icon={faUpload} style={{ color: "#5390f9" }} />
-                <Text color='#5390f9'>Export</Text>
+              <Flex gap={10} bg='#EEF6FF' p={10} rounded={5} _hover={{ cursor: 'pointer' }}>
+                <FontAwesomeIcon icon={faUpload} style={{ color: "#3E97FF" }} />
+                <Text color='#3E97FF'>Export</Text>
               </Flex>
 
               {/* Today Input */}
               <Flex
                 p={10}
                 rounded={5}
-                bg='#eeeeee'
+                bg='#F9F9F9'
                 w={70}
                 justifyContent='space-between'
                 _hover={{ cursor: 'pointer' }}
               >
-                <Text color='#a4a7ad'>Today</Text>
-                <FontAwesomeIcon icon={faChevronDown} style={{ color: "#a4a7ad", }} />
+                <Text color='#A1A5B7'>Today</Text>
+                <FontAwesomeIcon icon={faChevronDown} style={{ color: "#A1A5B7", }} />
               </Flex>
 
               {/* Status input */}
               <Flex
                 p={10}
                 rounded={5}
-                bg='#eeeeee'
+                bg='#F9F9F9'
                 w={70}
                 justifyContent='space-between'
                 _hover={{ cursor: 'pointer' }}
               >
-                <Text color='#a4a7ad'>Status</Text>
-                <FontAwesomeIcon icon={faChevronDown} style={{ color: "#a4a7ad", }} />
+                <Text color='#A1A5B7'>Status</Text>
+                <FontAwesomeIcon icon={faChevronDown} style={{ color: "#A1A5B7", }} />
               </Flex>
 
             </Flex>
@@ -205,7 +206,7 @@ const FormContainer: React.FC = () => {
             </GridItem>
 
             <GridItem colSpan={1}>
-              <Link href={row.link} className="no-underline hover:underline" color="#8dc2ff">
+              <Link href={row.link} className="no-underline hover:underline" color="#3E97FF">
                 {row.link}
               </Link>
             </GridItem>
@@ -217,11 +218,11 @@ const FormContainer: React.FC = () => {
             <GridItem colSpan={1}>
               <Flex justifyContent="center">
                 <Box
-                  backgroundColor={row.action === "Delisted" ? "#ffd6d6" : "#c5ffc5"}
+                  backgroundColor={row.action === "Delisted" ? "#FFF5F8" : "#E8FFF3"}
                   p={5}
                   rounded={5}
                 >
-                  <Text color={row.action === "Delisted" ? "red" : "#00a200"}>{row.action}</Text>
+                  <Text color={row.action === "Delisted" ? "#D9214E" : "#50CD89"}>{row.action}</Text>
                 </Box>
               </Flex>
             </GridItem>

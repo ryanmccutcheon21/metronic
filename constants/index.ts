@@ -2,14 +2,22 @@
 import { faUser, faBriefcase } from "@fortawesome/free-solid-svg-icons"
 
 // HOME_NAV_LINKS
-import homeIcon from '../public/home31.svg'
-import violationsIcon from '../public/addfiles1.svg'
-import whitelistIcon from '../public/scroll1.svg'
-import billingIcon from '../public/questionnairetablet1.svg'
-import affiliateIcon from '../public/graphup1.svg'
+import homeIcon from '../public/home-3.png'
+import homeIconBlack from '../public/home31.svg'
+import violationsIcon from '../public/violationsIconGray.svg'
+import violationsIconVBlue from '../public/violationsIconBlue.svg'
+import whitelistIcon from '../public/it-network.png'
+import whitelistIconVBlue from '../public/whitelistIconBlue.svg'
+import billingIcon from '../public/billingIcon.png'
+import billingIconBlue from '../public/billingImageBlue.svg'
+import affiliateIcon from '../public/business.svg'
+import affiliateIconBlue from '../public/affiliateIconBlue.svg'
 import settingIcon from '../public/setting21.svg'
+import settingIconBlue from '../public/setting.svg'
 import faqIcon from '../public/messagequestion1.svg'
+import faqIconBlue from '../public/support.svg'
 import supportIcon from '../public/rescue1.svg'
+import supportIconBlue from '../public/supportIconBlue.svg'
 
 // CARD_INFO
 import linksScrapedImg from '../public/disconnect.svg'
@@ -54,41 +62,49 @@ export const ACCOUNT_TYPES = [
 export const HOME_NAV_LINKS = [
     {
         image: homeIcon,
+        imageBlack: homeIconBlack,
         alt: 'home icon',
         text: 'Home'
     },
     {
-        image: violationsIcon,
+        image: violationsIconVBlue,
+        imageBlack: violationsIcon,
         alt: 'submit violations icon',
         text: 'Submit Violations'
     },
     {
-        image: whitelistIcon,
+        image: whitelistIconVBlue,
+        imageBlack: whitelistIcon,
         alt: 'whitelist icon',
         text: 'Whitelist'
     },
     {
-        image: billingIcon,
+        image: billingIconBlue,
+        imageBlack: billingIcon,
         alt: 'Billing icon',
         text: 'Billing'
     },
     {
-        image: affiliateIcon,
+        image: affiliateIconBlue,
+        imageBlack: affiliateIcon,
         alt: 'Affiliate Program icon',
         text: 'Affiliate Program'
     },
     {
-        image: settingIcon,
+        image: settingIconBlue,
+        imageBlack: settingIcon,
         alt: 'Settings icon',
         text: 'Settings'
     },
     {
-        image: faqIcon,
+        image: faqIconBlue,
+        imageBlack: faqIcon,
         alt: 'FAQ icon',
         text: 'FAQ'
     },
     {
-        image: supportIcon,
+        image: supportIconBlue,
+        imageBlack: supportIcon,
         alt: 'Support icon',
         text: 'Support'
     }

@@ -12,7 +12,7 @@ const SignUpMain: React.FC<SignUpMainProps> = ({ setUserData, currStep, setCurrS
     const [selected, setSelected] = useState(1)
 
     return (
-        <Flex flexGrow={1} flexDirection='column' justifyContent='center' gap={10} minH='100vh'>
+        <Flex flexDirection='column' justifyContent='center' gap={10} minH='100vh'>
             {/* Choose Account Type */}
             <Text color='#000' fontWeight='bold' fontSize='larger'>Choose an account type</Text>
             <Text color='#777' fontSize='small'>If you need more info, please visit our <Link href={'/signup'} className='text-blue no-underline'>help page</Link></Text>

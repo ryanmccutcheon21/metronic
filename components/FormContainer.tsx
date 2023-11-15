@@ -39,7 +39,7 @@ const FormContainer: React.FC = () => {
   )
 
   return (
-    <Flex flex={1} flexDirection='column' bg='whitesmoke' pt={20}>
+    <Flex flex={1} flexDirection='column' bg='whitesmoke' pt={20} px={30} mr={-39} w='1160px'>
 
       {/* Profile Dropdown */}
       <SortByDropdown />
@@ -50,18 +50,18 @@ const FormContainer: React.FC = () => {
           <Card borderBottom={`2px solid ${obj.borderColor}`} rounded={10} p={20} bg='white'>
             <CardBody>
               <Flex justifyContent='space-between' alignItems='center'>
-                <Text fontSize={40} color='black'>{obj.num}</Text>
-                <Box backgroundColor={obj.imgBackgroundColor} rounded={5} p={2}>
+                <Text fontSize={40} color='#181C32' className="font-semibold">{obj.num}</Text>
+                <Box backgroundColor={obj.imgBackgroundColor} rounded={4} p={5}>
                   <Image
                     alt="links scraped"
                     src={obj.image}
-                    height={20}
                     width={20}
+                    height={20}
                   />
                 </Box>
               </Flex>
             </CardBody>
-            <CardFooter color='#777' mt={10} fontSize={12}>
+            <CardFooter color='#5E6278' mt={8} fontSize={12}>
               {obj.text}
             </CardFooter>
           </Card>
@@ -158,25 +158,25 @@ const FormContainer: React.FC = () => {
             {/* Checkbox */}
             <Flex gap={10}>
               <Box h={15} w={15} backgroundColor="#DDD" rounded={2}></Box>
-              <Text color="black">ID</Text>
+              <Text color="#A1A5B7">ID</Text>
             </Flex>
           </GridItem>
 
           <GridItem colSpan={1}>
-            <Text color="black">DATE REMOVED</Text>
+            <Text color="#A1A5B7">DATE REMOVED</Text>
           </GridItem>
 
           <GridItem colSpan={1}>
-            <Text color="black">LINK</Text>
+            <Text color="#A1A5B7">LINK</Text>
           </GridItem>
 
           <GridItem colSpan={1}>
-            <Text color="black">SOURCE</Text>
+            <Text color="#A1A5B7">SOURCE</Text>
           </GridItem>
 
           <GridItem colSpan={1}>
             <Flex justifyContent="center">
-              <Text color="black">Action</Text>
+              <Text color="#A1A5B7">Action</Text>
             </Flex>
           </GridItem>
         </Grid>
@@ -197,12 +197,12 @@ const FormContainer: React.FC = () => {
             <GridItem colSpan={1}>
               <Flex gap={10}>
                 <Box h={15} w={15} backgroundColor="#DDD" rounded={2}></Box>
-                <Text color="black">{row.id}</Text>
+                <Text color="black" className="font-semibold">{row.id}</Text>
               </Flex>
             </GridItem>
 
             <GridItem colSpan={1}>
-              <Text color="black">{row.dateRemoved}</Text>
+              <Text color="#7E8299">{row.dateRemoved}</Text>
             </GridItem>
 
             <GridItem colSpan={1}>
@@ -212,7 +212,7 @@ const FormContainer: React.FC = () => {
             </GridItem>
 
             <GridItem colSpan={1}>
-              <Text color="black">{row.source}</Text>
+              <Text color="#7E8299">{row.source}</Text>
             </GridItem>
 
             <GridItem colSpan={1}>
@@ -232,19 +232,19 @@ const FormContainer: React.FC = () => {
 
         <Flex justifyContent='space-between'>
           {/* Total Result */}
-          <Box backgroundColor="#eeeeee" px={10} py={5} my={20}>
-            <Text color="#9f9f9f">{`Total Result: ${totalItems}`}</Text>
+          <Box backgroundColor="#F9F9F9" p={10} my={20}>
+            <Text color="#A1A5B7">{`Total Result: ${totalItems}`}</Text>
           </Box>
 
           {/* Bottom Navigation */}
           <Flex alignItems='center' gap={10}>
-            <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#9f9f9f', cursor: 'pointer' }} onClick={() => handlePageChange(currentPage - 1)} />
+            <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#D8D8E5', cursor: 'pointer' }} onClick={() => handlePageChange(currentPage - 1)} />
 
             {[0, 1, 2, 3, 4].map((_, i) => (
               <Button
                 key={i}
-                backgroundColor={i + 1 === currentPage ? "#5390f9" : "transparent"}
-                color={i + 1 === currentPage ? 'white' : '#9f9f9f'}
+                backgroundColor={i + 1 === currentPage ? "#3E97FF" : "transparent"}
+                color={i + 1 === currentPage ? 'white' : '#7E8299'}
                 rounded={5}
                 border='none'
                 fontSize={20}
@@ -255,7 +255,7 @@ const FormContainer: React.FC = () => {
               </Button>
             ))}
 
-            <FontAwesomeIcon icon={faChevronRight} style={{ color: '#9f9f9f', cursor: 'pointer' }} onClick={() => handlePageChange(currentPage + 1)} />
+            <FontAwesomeIcon icon={faChevronRight} style={{ color: '#7E8299', cursor: 'pointer' }} onClick={() => handlePageChange(currentPage + 1)} />
           </Flex>
           {/* End Bottom Navigation */}
         </Flex>

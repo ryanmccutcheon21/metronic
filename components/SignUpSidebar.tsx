@@ -2,7 +2,7 @@ import { progressIndicators } from '@/constants'
 import { SignUpSidebarProps } from '@/types'
 import Image from 'next/image'
 import React from 'react'
-import logo from '../public/logo.png'
+import logo from '../public/signUpLogo.svg'
 import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import Link from 'next/link'
 
@@ -12,13 +12,9 @@ const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) 
             flexDirection='column'
             alignItems='center'
             justifyContent='space-between'
-            w={500}
-            minW='33vw'
+            w='33%'
             backgroundColor='#006CEA'
             minH='100vh'
-            px={125}
-            pt={140}
-            pb={35}
         >
 
             <Flex flexDirection='column' alignItems='center' pt={140} pb={35} px={125}>
@@ -28,7 +24,8 @@ const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) 
                         <Image
                             alt='Metronic Logo'
                             src={logo}
-                            height={73}
+                            height={74}
+                            width={242}
                         />
                     </Link>
                 </Box>
@@ -49,17 +46,16 @@ const SignUpSidebar: React.FC<SignUpSidebarProps> = ({ currStep, setCurrStep }) 
                                     {
                                         step < 4 && (
                                             <>
-                                                <hr className='border-l-1 border-dotted w-0 h-[2.3rem] absolute top-[2.3rem] left-[1.35rem] border-[#aaa]' />
+                                                <hr className='border-l-1 border-dotted w-0 h-[2.5rem] absolute top-[2.3rem] left-[1.35rem] border-[#aaa]' />
                                             </>
                                         )
                                     }
                                 </Box>
 
                                 <Box>
-                                    <Text className='font-semibold text-[20px] text-[#F9F9F9]'>{progressIndicators[step - 1].main}</Text>
+                                    <Text className='font-semibold text-[20px] text-[#FFFFFF]'>{progressIndicators[step - 1].main}</Text>
                                     <Text
-                                        color='#aaa'
-                                        className='font font-medium leading-[14px]'
+                                        className='font-medium text-[14px] leading-[14px] text-[#FFFFFF] opacity-[20%]'
                                     >
                                         {progressIndicators[step - 1].sub}
                                     </Text>
